@@ -29,7 +29,12 @@ defmodule TwitterWeb.Router do
   scope "/api", TwitterWeb do
     pipe_through :api
 
-    resources "/tweets", TweetController, only: [:index, :show, :create]
+    resources "/tweets", TweetController, only: [:index, :create]
+
+    get "/tweets/:id", TweetController, :show
+    put "/tweets/:id/like", TweetController, :update
+
+
     resources "/users", UserController, only: [:index, :show, :create]
   end
 end
