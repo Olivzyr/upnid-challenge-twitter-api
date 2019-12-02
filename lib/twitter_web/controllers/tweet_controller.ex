@@ -8,7 +8,7 @@ defmodule TwitterWeb.TweetController do
 
   def index(conn, _params) do
     tweets = Management.list_tweets()
-    render(conn, "index.json", tweets: tweets)
+    render(conn, "index.json-api", data: tweets)
   end
 
   def create(conn, %{"tweet" => tweet_params}) do
@@ -16,20 +16,20 @@ defmodule TwitterWeb.TweetController do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.tweet_path(conn, :show, tweet))
-      |> render("show.json", tweet: tweet)
+      |> render("show.json-api", data: tweet)
     end
   end
 
   def show(conn, %{"id" => id}) do
     tweet = Management.get_tweet!(id)
-    render(conn, "show.json", tweet: tweet)
+    render(conn, "show.json-api", data: tweet)
   end
 
   def update(conn, %{"id" => id, "tweet" => tweet_params}) do
     tweet = Management.get_tweet!(id)
 
     with {:ok, %Tweet{} = tweet} <- Management.update_tweet(tweet, tweet_params) do
-      render(conn, "show.json", tweet: tweet)
+      render(conn, "show.json-api", data: tweet)
     end
   end
 

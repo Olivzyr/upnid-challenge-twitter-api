@@ -13,7 +13,13 @@ defmodule TwitterWeb.Router do
     plug :accepts, ["json"]
   end
 
-  # scope "/", TwitterWeb do
+
+  pipeline :json_api do
+      plug :accepts, ["json-api"]
+      plug JaSerializer.Deserializer
+    end
+
+    # scope "/", TwitterWeb do
     # pipe_through :browser
 
     # get "/", PageController, :index
@@ -23,10 +29,7 @@ defmodule TwitterWeb.Router do
   scope "/api", TwitterWeb do
     pipe_through :api
 
-    resources "/tweets", TweetController, only: [:index, :create]
-
-    get "/tweets/:id", TweetController, :show
-
+    resources "/tweets", TweetController, only: [:index, :show, :create]
     resources "/users", UserController, only: [:index, :show, :create]
   end
 end

@@ -1,17 +1,9 @@
 defmodule TwitterWeb.UserView do
   use TwitterWeb, :view
-  alias TwitterWeb.UserView
+  use JaSerializer.PhoenixView
 
-  def render("index.json", %{users: users}) do
-    %{data: render_many(users, UserView, "user.json")}
-  end
+  #alias TwitterWeb.UserView
 
-  def render("show.json", %{user: user}) do
-    %{data: render_one(user, UserView, "user.json")}
-  end
+  attributes [:name]
 
-  def render("user.json", %{user: user}) do
-    %{id: user.id,
-      name: user.name}
-  end
 end
