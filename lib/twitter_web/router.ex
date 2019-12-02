@@ -32,6 +32,8 @@ defmodule TwitterWeb.Router do
     resources "/tweets", TweetController, only: [:index, :create]
 
     get "/tweets/:id", TweetController, :show
+    put "/tweets/:id/like", TweetController, :update
+
 
     resources "/users", UserController, only: [:index, :show, :create]
   end
