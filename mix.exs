@@ -1,15 +1,20 @@
 defmodule Twitter.MixProject do
   use Mix.Project
 
+  @elixir_version "~> 1.6"
+  @version "0.0.1"
+
   def project do
     [
       app: :twitter,
-      version: "0.1.0",
-      elixir: "~> 1.5",
+      version: @version,
+      elixir: @elixir_version,
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
+      consolidate_protocols: true,
+      test_coverage: [tool: ExCoveralls],
       deps: deps()
     ]
   end

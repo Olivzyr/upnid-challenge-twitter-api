@@ -28,5 +28,5 @@
                         'Elixir.TwitterWeb.UserSocket',
                         'Elixir.TwitterWeb.UserView']},
               {registered,[]},
-              {vsn,"0.1.0"},
+              {vsn,"0.0.1"},
               {mod,{'Elixir.Twitter.Application',[]}}]}.
