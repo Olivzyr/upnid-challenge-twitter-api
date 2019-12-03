@@ -21,6 +21,8 @@ defmodule Twitter.Management do
     Repo.all(User)
   end
 
+
+
   @doc """
   Gets a single user.
 
@@ -115,6 +117,22 @@ defmodule Twitter.Management do
   """
   def list_tweets do
     Repo.all(Tweet)
+  end
+
+  # List tweets by published status
+  def list_tweets_by_status(status) do
+    Tweet
+    |> Ecto.Query.preload([:user])
+    |> where(published: ^status)
+    |> Repo.all()
+  end
+
+  # List tweets by user
+  def list_tweets_by_user(user_id) do
+    Tweet
+    |> Ecto.Query.preload([:user])
+    |> where(user_id: ^user_id)
+    |> Repo.all()
   end
 
   @doc """
