@@ -1,7 +1,7 @@
 defmodule TwitterWeb.TweetView do
   use TwitterWeb, :view
   use JaSerializer.PhoenixView
-  alias TwitterWeb.TweetView
+  #alias TwitterWeb.TweetView
 
 
 
