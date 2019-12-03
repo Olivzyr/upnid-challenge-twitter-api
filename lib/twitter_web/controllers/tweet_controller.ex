@@ -16,10 +16,17 @@ defmodule TwitterWeb.TweetController do
     tweets = Management.list_tweets_by_status(false)
     render(conn, "index.json-api", data: tweets)
   end
+  ###################################################
 
   # Filter by user_id
   def index(conn, %{"user" => user_id}) do
     tweets = Management.list_tweets_by_user(user_id)
+    render(conn, "index.json-api", data: tweets)
+  end
+
+  # Filter by views
+  def index(conn, %{"views" => view_count}) do
+    tweets = Management.list_tweets_by_view_count(view_count)
     render(conn, "index.json-api", data: tweets)
   end
 

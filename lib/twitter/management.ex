@@ -135,6 +135,14 @@ defmodule Twitter.Management do
     |> Repo.all()
   end
 
+  # List tweets by view in crescent form
+  def list_tweets_by_view_count(view_count) do
+    Tweet
+    |> Ecto.Query.preload([:user])
+    |> where([d], d.view_count >= ^view_count)
+    |> Repo.all()
+  end
+
   @doc """
   Gets a single tweet.
 
