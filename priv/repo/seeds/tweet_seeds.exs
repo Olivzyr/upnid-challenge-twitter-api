@@ -21,7 +21,7 @@ Repo.insert! %Tweet{
   user_id: 3,
   description: "Alguem me ensina java!!!",
   view_count: 15,
-  published: true,
+  published: false,
   like: 5
 }
 
@@ -29,5 +29,5 @@ Repo.insert! %Tweet{
   user_id: 1,
   description: "Eu finalmente estou programando em elixir!!!",
   view_count: 1,
-  published: true,
+  published: false,
 }
