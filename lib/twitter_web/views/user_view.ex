@@ -4,6 +4,6 @@ defmodule TwitterWeb.UserView do
 
   #alias TwitterWeb.UserView
 
-  attributes [:name, :email, :password, :follow]
+  attributes [:name, :email, :password_hash, :follow]
 
 end

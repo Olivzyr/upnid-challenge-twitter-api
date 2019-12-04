@@ -5,7 +5,7 @@ defmodule Twitter.Management.User do
   schema "users" do
     field :name, :string
     field :email, :string
-    field :password, :string
+    field :password_hash, :string
     field :follow, :boolean
 
 
@@ -16,6 +16,7 @@ defmodule Twitter.Management.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:name, :email, :password, :follow])
-    |> validate_required([:name, :email, :password])
+    |> validate_required([:name, :email, :password_hash])
+    |> unique_constraint(:email)
   end
 end

@@ -39,6 +39,7 @@ defmodule Twitter.Management do
   """
   def get_user!(identifier), do: user_by_id_or_name(identifier)
 
+  # Search user by id or name params
   defp user_by_id_or_name(identifier) when is_integer(identifier) do
     Repo.get!(User, identifier)
   end
