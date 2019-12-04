@@ -72,7 +72,7 @@ This project was developed with the following technologies:
 
 ## Running for First Time
 
-To clone and run this application, you'll need [Git][git], [Docker][docker], [Elixir][elixir], [Postbird][postbird], [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher + [Npm][npm] installed on your computer. 
+To clone and run this application, you'll need [Git][git], [Insomnia][insomnia], [Docker][docker], [Elixir][elixir], [Postbird][postbird], [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher + [Npm][npm] installed on your computer. 
 
 From your command line:
 
@@ -105,11 +105,7 @@ $ mix run priv/repo/seeds/tweet_seeds.exs
 # Run the Server
 $ mix phx.server
 ```
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
----
-
-#### There is an [Insomnia file](./Insomnia.json) you can load on your Insomnia to test the routes.
+Now you can open [Insomnia][insomnia] and import file [Insomnia file](./Insomnia.json) to test routes.
 
 ---
 
@@ -238,6 +234,10 @@ ignored: directory (68), file (726)
 
 ![Postgres Twitter database][postgres_twitter_database]
 
+### Routes Details
+
+#### There is an [Insomnia file](./Insomnia.json) you can load on your Insomnia to test the routes.
+
 ---
 
 ## Learn more
@@ -282,3 +282,4 @@ This project is under the MIT license. See the [LICENSE](./LICENSE) for more inf
 [poison]: https://github.com/devinus/poison
 [inotify-tools]: https://github.com/rvoicilas/inotify-tools/wiki#getting
 [hex]: https://hex.pm/
+[insomnia]: https://insomnia.rest/download/
