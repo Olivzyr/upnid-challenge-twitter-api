@@ -4,6 +4,9 @@ defmodule Twitter.Repo.Migrations.CreateUsers do
   def change do
     create table(:users) do
       add :name, :string
+      add :email, :string
+      add :password, :string
+      add :follow, :boolean, default: false
 
 
       timestamps()

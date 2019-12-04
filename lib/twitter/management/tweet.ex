@@ -6,6 +6,7 @@ defmodule Twitter.Management.Tweet do
     field :description, :string
     field :view_count, :integer
     field :published, :boolean
+    field :like, :integer
 
     # Create foreingKey tweet table to user table
     belongs_to :user, Twitter.Management.User
@@ -16,7 +17,7 @@ defmodule Twitter.Management.Tweet do
   @doc false
   def changeset(tweet, attrs) do
     tweet
-    |> cast(attrs, [:description, :view_count, :published, :user_id])
+    |> cast(attrs, [:user_id, :description, :view_count, :published, :like ])
     |> validate_required([:user_id, :description])
   end
 end

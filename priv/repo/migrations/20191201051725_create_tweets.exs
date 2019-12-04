@@ -7,6 +7,7 @@ defmodule Twitter.Repo.Migrations.CreateTweets do
       add :description, :text
       add :view_count, :integer
       add :published, :boolean, default: false
+      add :like, :integer
 
       timestamps()
     end
