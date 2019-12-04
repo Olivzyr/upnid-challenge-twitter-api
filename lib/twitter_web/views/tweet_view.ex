@@ -5,6 +5,6 @@ defmodule TwitterWeb.TweetView do
 
 
 
-  attributes [:description, :view_count, :published, :user_id]
+  attributes [:user_id, :description, :view_count, :published, :like ]
 
 end

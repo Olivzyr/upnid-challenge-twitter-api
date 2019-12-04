@@ -29,6 +29,7 @@ defmodule Twitter.Management.User do
 
     |> unique_constraint(:email)
 
+    |> downcase_email
     |> encrypt_password
   end
 
@@ -40,6 +41,10 @@ defmodule Twitter.Management.User do
     else
     changeset
     end
+  end
+
+  defp downcase_email(changeset) do
+    update_change(changeset, :email, &String.downcase/1)
   end
 
 end

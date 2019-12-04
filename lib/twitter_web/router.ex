@@ -19,11 +19,11 @@ defmodule TwitterWeb.Router do
       plug JaSerializer.Deserializer
     end
 
-  #   scope "/", TwitterWeb do
-  #   pipe_through :browser
+    scope "/", TwitterWeb do
+    pipe_through :browser
 
-  #   get "/", PageController, :index
-  # end
+    get "/", PageController, :index
+  end
 
   # Other scopes may use custom stacks.
   scope "/api", TwitterWeb do
@@ -34,7 +34,13 @@ defmodule TwitterWeb.Router do
     get "/tweets/:id", TweetController, :show
     put "/tweets/:id/like", TweetController, :update
 
+    ## Routers for sessions ##
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+    delete "/logout", SessionController, :delete
 
-    resources "/users", UserController, only: [:index, :show, :create]
+    resources "/users", UserController
+
+
   end
 end
