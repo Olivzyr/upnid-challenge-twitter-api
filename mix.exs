@@ -49,7 +49,10 @@ defmodule Twitter.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:poison, "~> 3.1"},
-      {:ja_serializer, github: "vt-elixir/ja_serializer"}
+      {:ja_serializer, github: "vt-elixir/ja_serializer"},
+      ## ADDED DEPS ##
+      {:comeonin, "~> 4.0"},
+      {:argon2_elixir, "~> 1.2"}
     ]
   end
 
