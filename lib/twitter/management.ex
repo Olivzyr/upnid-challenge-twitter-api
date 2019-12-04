@@ -39,22 +39,6 @@ defmodule Twitter.Management do
   """
   def get_user!(identifier), do: user_by_id_or_name(identifier)
 
-  # Search user by id or name params
-  defp user_by_id_or_name(identifier) when is_integer(identifier) do
-    Repo.get!(User, identifier)
-  end
-
-  defp user_by_id_or_name(identifier) when is_binary(identifier) do
-    case Integer.parse(identifier) do
-      {int, ""} ->
-        user_by_id_or_name(int)
-      _error ->
-        User
-        |> where(name: ^identifier)
-        |> Repo.one!()
-    end
-  end
-
 
   def create_user(attrs \\ %{}) do
     %User{}
@@ -74,6 +58,12 @@ defmodule Twitter.Management do
       {:error, %Ecto.Changeset{}}
 
   """
+  # def update_user(%User{} = user, attrs) do
+  #   user
+  #   |> User.changeset(attrs)
+  #   |> Repo.update()
+  # end
+
   def update_user(%User{} = user, attrs) do
     user
     |> User.changeset(attrs)
@@ -109,6 +99,26 @@ defmodule Twitter.Management do
     User.changeset(user, %{})
   end
 
+
+  ## Aux Functions ##
+   # Search user by id or name params
+   defp user_by_id_or_name(identifier) when is_integer(identifier) do
+    Repo.get!(User, identifier)
+  end
+
+  defp user_by_id_or_name(identifier) when is_binary(identifier) do
+    case Integer.parse(identifier) do
+      {int, ""} ->
+        user_by_id_or_name(int)
+      _error ->
+        User
+        |> where(name: ^identifier)
+        |> Repo.one!()
+    end
+  end
+
+  ##############################################################################
+
   alias Twitter.Management.Tweet
 
   @doc """
@@ -120,6 +130,9 @@ defmodule Twitter.Management do
       [%Tweet{}, ...]
 
   """
+
+
+
   # # Filter by published status tweets
   def list_tweets(%{"status" => "published"}), do: list_tweets_by_status(true)
   def list_tweets(%{"status" => _}), do: list_tweets_by_status(false)

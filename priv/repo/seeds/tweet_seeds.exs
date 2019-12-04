@@ -6,7 +6,7 @@ Repo.insert! %Tweet{
   description: "Alguém poderia me ensinar elixir?",
   view_count: 20,
   published: true,
-  like: 1
+  like: 15
 }
 
 Repo.insert! %Tweet{
@@ -14,7 +14,7 @@ Repo.insert! %Tweet{
   description: "Gostaria de uma xicara de café?",
   view_count: 5,
   published: true,
-  like: 1
+  like: 12
 }
 
 Repo.insert! %Tweet{
@@ -22,7 +22,7 @@ Repo.insert! %Tweet{
   description: "Alguem me ensina java!!!",
   view_count: 15,
   published: true,
-  like: 1
+  like: 5
 }
 
 Repo.insert! %Tweet{
@@ -30,5 +30,4 @@ Repo.insert! %Tweet{
   description: "Eu finalmente estou programando em elixir!!!",
   view_count: 1,
   published: true,
-  like: 1
 }

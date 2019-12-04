@@ -4,23 +4,20 @@ alias Twitter.Management.User
 Repo.insert! %User{
   name: "Yan Brito Oliveira",
   email: "yan@hotmail.com",
-  password: "123456789",
-  password_confirmation: "123456789",
-  follow: true
+  password_hash: Argon2.hash_pwd_salt("123456789"),
+  follow: false
 }
 
 Repo.insert! %User{
   name: "Claudia Nazarena",
   email: "claudia@hotmail.com",
-  password: "123456789",
-  password_confirmation: "123456789",
+  password_hash: Argon2.hash_pwd_salt("123456789"),
   follow: false
 }
 
 Repo.insert! %User{
   name: "Roberto Oliveira",
   email: "roberto@hotmail.com",
-  password: "123456789",
-  password_confirmation: "123456789",
+  password_hash: Argon2.hash_pwd_salt("123456789"),
   follow: false
 }
