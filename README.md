@@ -23,10 +23,19 @@
       <a href="#license">License</a>
    </p>
 
-
 Upnid - [UpChallenge: Back-end - Test 1 (Twitter API) ](#)
 
-   > "Success is not the result of a game, but the destiny of a journey." !
+> "Success is not the result of a game, but the destiny of a journey." !
+
+
+<div>
+  <h1>My experience building this project</h1>
+    <p>
+    This challenge was a little complicated by the fact of not knowing the elixir language but around a week i was able to acquire a basic knowledge to complete the challenge this occurs very much by the documentation that is very good even by the previous knowledge of nodejs which was extremely helpful to understand the logic behind each request. So in this challenge the biggest difficulty was understanding the language syntax and knowing the frameworks and understanding how they work to help me in development. Even with all the difficulties it was very fun to develop this API and add much new knowledge of this language that did not even know.
+    So Have fun testing this API and feel free to use in your projects, thanks.
+    </p>
+  </div>
+
 </p>
 
 ---
