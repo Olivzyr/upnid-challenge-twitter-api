@@ -37,20 +37,24 @@ defmodule Twitter.Management do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(identifier), do: user_by_id_or_name(identifier)
 
-  @doc """
-  Creates a user.
+  defp user_by_id_or_name(identifier) when is_integer(identifier) do
+    Repo.get!(User, identifier)
+  end
 
-  ## Examples
+  defp user_by_id_or_name(identifier) when is_binary(identifier) do
+    case Integer.parse(identifier) do
+      {int, ""} ->
+        user_by_id_or_name(int)
+      _error ->
+        User
+        |> where(name: ^identifier)
+        |> Repo.one!()
+    end
+  end
 
-      iex> create_user(%{field: value})
-      {:ok, %User{}}
 
-      iex> create_user(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
   def create_user(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
@@ -115,12 +119,24 @@ defmodule Twitter.Management do
       [%Tweet{}, ...]
 
   """
-  def list_tweets do
+  # # Filter by published status tweets
+  def list_tweets(%{"status" => "published"}), do: list_tweets_by_status(true)
+  def list_tweets(%{"status" => _}), do: list_tweets_by_status(false)
+
+  # # Filter by user_id
+  def list_tweets(%{"user" => user_id}), do: list_tweets_by_user(user_id)
+
+  # # Filter by views
+  def list_tweets(%{"views" => view_count}), do: list_tweets_by_view_count(view_count)
+
+  # List all tweets for all users
+  def list_tweets(_) do
     Repo.all(Tweet)
   end
 
+
   # List tweets by published status
-  def list_tweets_by_status(status) do
+  defp list_tweets_by_status(status) do
     Tweet
     |> Ecto.Query.preload([:user])
     |> where(published: ^status)
@@ -128,7 +144,7 @@ defmodule Twitter.Management do
   end
 
   # List tweets by user
-  def list_tweets_by_user(user_id) do
+  defp list_tweets_by_user(user_id) do
     Tweet
     |> Ecto.Query.preload([:user])
     |> where(user_id: ^user_id)
@@ -136,7 +152,7 @@ defmodule Twitter.Management do
   end
 
   # List tweets by view in crescent form
-  def list_tweets_by_view_count(view_count) do
+  defp list_tweets_by_view_count(view_count) do
     Tweet
     |> Ecto.Query.preload([:user])
     |> where([d], d.view_count >= ^view_count)

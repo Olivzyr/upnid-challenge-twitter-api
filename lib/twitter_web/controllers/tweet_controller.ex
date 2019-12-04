@@ -6,34 +6,32 @@ defmodule TwitterWeb.TweetController do
 
   action_fallback TwitterWeb.FallbackController
 
-  # Filter by published status tweets
-  def index(conn, %{"status" => "published"}) do
-    tweets = Management.list_tweets_by_status(true)
-    render(conn, "index.json-api", data: tweets)
-  end
+  # # Filter by published status tweets
+  # def index(conn, %{"status" => "published"}) do
+  #   tweets = Management.list_tweets_by_status(true)
+  #   render(conn, "index.json-api", data: tweets)
+  # end
 
-  def index(conn, %{"status" => _status}) do
-    tweets = Management.list_tweets_by_status(false)
-    render(conn, "index.json-api", data: tweets)
-  end
-  ###################################################
+  # def index(conn, %{"status" => _status}) do
+  #   tweets = Management.list_tweets_by_status(false)
+  #   render(conn, "index.json-api", data: tweets)
+  # end
+  # ###################################################
 
-  # Filter by user_id
-  def index(conn, %{"user" => user_id}) do
-    tweets = Management.list_tweets_by_user(user_id)
-    render(conn, "index.json-api", data: tweets)
-  end
+  # # Filter by user_id
+  # def index(conn, %{"user" => user_id}) do
+  #   tweets = Management.list_tweets_by_user(user_id)
+  #   render(conn, "index.json-api", data: tweets)
+  # end
 
-  # Filter by views
-  def index(conn, %{"views" => view_count}) do
-    tweets = Management.list_tweets_by_view_count(view_count)
-    render(conn, "index.json-api", data: tweets)
-  end
+  # # Filter by views
+  # def index(conn, %{"views" => view_count}) do
+  #   tweets = Management.list_tweets_by_view_count(view_count)
+  #   render(conn, "index.json-api", data: tweets)
+  # end
 
-
-  # Return all tweets for all users
-  def index(conn, _params) do
-    tweets = Management.list_tweets()
+  def index(conn, params) do
+    tweets = Management.list_tweets(params)
     render(conn, "index.json-api", data: tweets)
   end
 
