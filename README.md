@@ -105,7 +105,7 @@ $ mix run priv/repo/seeds/tweet_seeds.exs
 # Run the Server
 $ mix phx.server
 ```
-Now you can open [Insomnia][insomnia] and import file [Insomnia file](./Insomnia.json) to test routes.
+#### Now you can open [Insomnia][insomnia] and import [Insomnia file](./Insomnia.json) to test routes.
 
 ---
 
@@ -226,17 +226,62 @@ ignored: directory (68), file (726)
 
 ## Project in function
 
-### - Insomnia: Routes and requests
+### - **Postgres: Structure database**
 
-![Insomnia Twitter][insomnia_twitter]
+**Postbird Connection and tables**
 
-### - Postgres: Structure database
+![postbird-tables][postbird-tables]
 
-![Postgres Twitter database][postgres_twitter_database]
+**Postbird - Tweets Table**
 
-### Routes Details
+![Postgres Twitter database][tweets-table]
 
-#### There is an [Insomnia file](./Insomnia.json) you can load on your Insomnia to test the routes.
+**Postbird - Users Table**
+
+![users-table][users-table]
+
+
+
+### - **Insomnia: Routes and requests**
+
+**Insomnia Routes Test**
+
+![insomnia-routes-test][insomnia-routes-test]
+
+**Insomnia Route - Create and Show My Recent Tweet**
+
+![create-and-show-my-own-recent-tweet][create-and-show-my-own-recent-tweet]
+
+**Insomnia Route - List All User Tweets**
+
+![list-tweets-by-user][list-tweets-by-user]
+
+
+
+### **Routes Methods Details**
+
+#### With open insomnia we have 2 main directories: (Main Challenge - Tweets) and (Bonus Challenge - Tweets and Users).
+#### Below we can see the path of each feature with its brief description:
+
+#### Main Challenge - Tweets:
+- [POST - Create and show my own recent tweet][Create and show my own recent tweet]
+- [GET - List All Tweets By User][List All Tweets By User]
+
+#### Bonus Challenge - Tweets and Users:
+
+**Tweets**
+- [GET - List All Users Tweets][List All Users Tweets]
+- [GET - List Tweet by Unpublished Status][List Tweet by Unpublished Status]
+- [GET - List Tweet by Published Status][List Tweet by Published Status]
+- [GET - List Tweets By View Count][List Tweets By View Count]
+- [PUT - Like My Tweet][Like My Tweet]
+
+**Users**
+- [POST - Create User][Create User]
+- [GET - List All Users][List All Users]
+- [PUT - Follow User][Follow User]
+- [GET - Search User By Id][Search User By Id]
+- [GET - Search User By Name][Search User By Name]
 
 ---
 
@@ -262,9 +307,18 @@ This project is under the MIT license. See the [LICENSE](./LICENSE) for more inf
 
 [challengeUpnid]: https://youtu.be/34A_NV777RQ
 
-[insomnia_twitter]: #
-[postgres_twitter_database]: # 
+<!-- Project in function -->
+<!-- Routes -->
+[insomnia-routes-test]: https://user-images.githubusercontent.com/16024701/70183776-28f90c00-16c5-11ea-8154-e5f1f3f51b95.gif
+[create-and-show-my-own-recent-tweet]: https://user-images.githubusercontent.com/16024701/70183894-783f3c80-16c5-11ea-929e-d9561c4a92c5.png
+[list-tweets-by-user]: https://user-images.githubusercontent.com/16024701/70184033-be949b80-16c5-11ea-98c6-a1f204ad3662.png
 
+<!-- Database -->
+[postbird-tables]: https://user-images.githubusercontent.com/16024701/70183424-893b7e00-16c4-11ea-890e-87210db99b77.gif
+[tweets-table]: https://user-images.githubusercontent.com/16024701/70182975-ac196280-16c3-11ea-94e6-02f0d57b969d.png
+[users-table]: https://user-images.githubusercontent.com/16024701/70183094-e71b9600-16c3-11ea-9b14-3d6b811ba360.png
+
+<!-- Technologies -->
 [elixir]: https://elixir-lang.org/
 [nodejs]: https://nodejs.org/
 [vc]: https://code.visualstudio.com/
@@ -283,3 +337,24 @@ This project is under the MIT license. See the [LICENSE](./LICENSE) for more inf
 [inotify-tools]: https://github.com/rvoicilas/inotify-tools/wiki#getting
 [hex]: https://hex.pm/
 [insomnia]: https://insomnia.rest/download/
+
+
+
+<!-- Insomnia Routes -->
+<!-- Main Challenge - Tweets -->
+[Create and show my own recent tweet]: http://localhost:4000/api/tweets
+[List All Tweets By User]: http://localhost:4000/api/tweets?user=1
+
+<!-- Bonus Challenge - Tweets and Users -->
+<!-- Tweets -->
+[List All Users Tweets]: http://localhost:4000/api/tweets
+[List Tweet by Unpublished Status]: http://localhost:4000/api/tweets?status=unpublished
+[List Tweet by Published Status]: http://localhost:4000/api/tweets?status=published
+[List Tweets By View Count]: http://localhost:4000/api/tweets?views=5
+[Like My Tweet]: http://localhost:4000/api/tweets/1/like
+<!-- Users -->
+[Create User]: http://localhost:4000/api/users
+[List All Users]: http://localhost:4000/api/users
+[Follow User]: http://localhost:4000/api/users/Claudia%20Nazarena/follow
+[Search User By Id]: http://localhost:4000/api/users/2
+[Search User By Name]: http://localhost:4000/api/users/Claudia%20Nazarena
