@@ -26,17 +26,22 @@
 
 Upnid - [UpChallenge: Back-end - Test 1 (Twitter API) ](#)
 
-   > "How you look at it is pretty much how you'll see it." **Rasheed Ogunlaru**
+   > "Success is not the result of a game, but the destiny of a journey." !
 </p>
 
 ---
 ## **About the challenge:**
 #### **Developer one RESTful back-end to simulate once functions twitter API using Postgres database, and Elixir language**
+
+* The objective of this challenge is to recreate some functionalities presente in back-end twitter API to create users and tweets specify right below:
+
+### Challenge Features
+* Create a new tweet
+* List you own tweets
+* Show you own tweet
 ---
-* The objective of this challenge is to recreate some functionalities presente in back-end twitter API to whe can create users and tweets.
-
+### Project in video
 * To view this project in function please. click [here][challengeUpnid].
-
 
 ---
 # Resources and Procedures
@@ -55,11 +60,13 @@ This project was developed with the following technologies:
 
 ## Developed Features
 
-* Api for encrypt password to user login with argon2_elixir and comeonin.
+* Api for encrypt password to user login with [Argon2][argon2_elixir] and [Comeonin][comeonin].
 * Apis for creation, update Users in plataform.
 * Apis for CRUD of Tweets created by users.
 * Api for consultation of published tweets made by Users present in plataform.
 * Apis for Users to follow and consult another users present in clone twitter plataform.
+
+
 
 ---
 
@@ -264,6 +271,8 @@ This project is under the MIT license. See the [LICENSE](./LICENSE) for more inf
 [vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
 [vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 [phoenix]: http://www.phoenixframework.org/
+[argon2_elixir]: https://github.com/riverrun/argon2_elixir
+[comeonin]: https://github.com/riverrun/comeonin
 [docker]: https://www.docker.com
 [git]: https://git-scm.com
 [postbird]: https://electronjs.org/apps/postbird
