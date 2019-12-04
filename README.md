@@ -75,7 +75,16 @@ This project was developed with the following technologies:
 * Api for consultation of published tweets made by Users present in plataform.
 * Apis for Users to follow and consult another users present in clone twitter plataform.
 
-
+## Functionalities
+* Creation of new users with encrypted password;
+* Posting new tweets per user and viewing the created tweet;
+* Listing of tweets by user;
+* Listing tweets of all registered users;
+* Filter of tweets with higher views according to a user-specified range;
+* Filter of tweets published or not;
+* Functionality to like tweets;
+* Functionality to follow a registered user;
+* Search for users by name and id generated.
 
 ---
 
